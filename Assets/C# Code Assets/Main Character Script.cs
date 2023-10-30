@@ -9,6 +9,8 @@ public class MainCharacterScript : MonoBehaviour
     SpriteRenderer sr;
     Rigidbody2D rb;
     CombinedHelperScript Helper;
+    Vector3 dir;
+    int health = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +19,22 @@ public class MainCharacterScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         Helper = gameObject.AddComponent<CombinedHelperScript>();
+        //dir = Vector3.zero;
+    }
+
+    private void FixedUpdate()
+    {
+        //rb.AddForce(dir, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         float speed = 0.5f;
         anim.SetBool("Walk", false);
 
+         dir = Vector3.zero;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -42,7 +52,11 @@ public class MainCharacterScript : MonoBehaviour
             sr.flipX = false;
             print("D Key Pressed");
             anim.SetBool("Walk", true);
-            transform.position = new Vector2(transform.position.x + (speed * Time.deltaTime), transform.position.y);
+            //transform.position = new Vector2(transform.position.x + (speed * Time.deltaTime), transform.position.y);
+            //dir = new Vector3(25, 0, 0);
+
+            rb.velocity = new Vector3(3, rb.velocity.y);
+
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -81,6 +95,18 @@ public class MainCharacterScript : MonoBehaviour
         else
         {
             anim.SetBool("Roll", false);
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            print("Space Pressed");
+
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            print("Enter Key Pressed");
+            anim.SetBool("", true)
         }
     }
 }
