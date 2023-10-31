@@ -182,12 +182,12 @@ TextureImporter:
       name: Recharge_0
       rect:
         serializedVersion: 2
-        x: 44
+        x: 45
         y: 0
-        width: 36
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: Recharge_1
       rect:
         serializedVersion: 2
-        x: 172
+        x: 173
         y: 0
-        width: 36
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: Recharge_2
       rect:
         serializedVersion: 2
-        x: 300
+        x: 301
         y: 0
-        width: 41
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 39
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -245,12 +245,12 @@ TextureImporter:
       name: Recharge_3
       rect:
         serializedVersion: 2
-        x: 428
+        x: 429
         y: 0
-        width: 39
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 37
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -266,12 +266,12 @@ TextureImporter:
       name: Recharge_4
       rect:
         serializedVersion: 2
-        x: 556
+        x: 557
         y: 0
-        width: 31
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 29
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -287,12 +287,12 @@ TextureImporter:
       name: Recharge_5
       rect:
         serializedVersion: 2
-        x: 684
+        x: 685
         y: 0
-        width: 31
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 29
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -308,12 +308,12 @@ TextureImporter:
       name: Recharge_6
       rect:
         serializedVersion: 2
-        x: 812
+        x: 813
         y: 0
-        width: 41
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 39
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -329,12 +329,12 @@ TextureImporter:
       name: Recharge_7
       rect:
         serializedVersion: 2
-        x: 940
+        x: 941
         y: 0
-        width: 36
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 34
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,7 +349,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 47d893c2819086e438b3e42306d5d52f
     internalID: 0
     vertices: []
     indices: 

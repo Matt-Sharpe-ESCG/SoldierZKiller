@@ -170,12 +170,12 @@ TextureImporter:
       name: Lie_down_0
       rect:
         serializedVersion: 2
-        x: 44
+        x: 45
         y: 0
-        width: 43
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 41
+        height: 59
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: Lie_down_1
       rect:
         serializedVersion: 2
-        x: 172
+        x: 173
         y: 0
-        width: 43
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 41
+        height: 57
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,12 +212,12 @@ TextureImporter:
       name: Lie_down_2
       rect:
         serializedVersion: 2
-        x: 304
+        x: 305
         y: 0
-        width: 30
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 28
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -233,12 +233,12 @@ TextureImporter:
       name: Lie_down_3
       rect:
         serializedVersion: 2
-        x: 396
+        x: 397
         y: 0
-        width: 89
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 87
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,7 +253,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2ad873bc9e6eb284bb591f6fa5f27999
     internalID: 0
     vertices: []
     indices: 

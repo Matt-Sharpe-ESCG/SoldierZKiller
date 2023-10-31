@@ -10,7 +10,7 @@ public class PatrolingEnemyScript : MonoBehaviour
     private Animator anim;
     private Transform currentPoint;
     public float speed;
-    int health = 15;
+    private int health = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -52,5 +52,20 @@ public class PatrolingEnemyScript : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

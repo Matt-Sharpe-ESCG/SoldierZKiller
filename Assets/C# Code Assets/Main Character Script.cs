@@ -24,18 +24,16 @@ public class MainCharacterScript : MonoBehaviour
         //dir = Vector3.zero;
     }
 
-    private void Flip()
+    private void Flip(bool left)
     {
-        m_FacingRight = !m_FacingRight;
-
-        transform.Rotate(0f, 180f, 0f);
+        sr.flipX = left;
     }
 
     // Update is called once per frame
     void Update()
     {
         int speed = 1;
-        float jumpFactor = 0.025f;
+        float jumpFactor = 4f;
         anim.SetBool("Walk", false);
 
         dir = Vector3.zero;
@@ -54,13 +52,14 @@ public class MainCharacterScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             print("D Key Pressed");
+            Flip(false);
             anim.SetBool("Walk", true);
             transform.position = new Vector2(transform.position.x + (speed * Time.deltaTime), transform.position.y);           
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            Flip();
+            Flip(true);
             anim.SetBool("Walk", true);
             print("A Key Pressed");
             transform.position = new Vector2(transform.position.x - (speed * Time.deltaTime), transform.position.y);
@@ -109,5 +108,22 @@ public class MainCharacterScript : MonoBehaviour
         }
     }
 
-    
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health >= 0)
+        {
+            anim.SetBool("Hit", true);
+        }
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        anim.SetBool("Die", true);
+    }
 }
