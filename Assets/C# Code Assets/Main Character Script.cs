@@ -11,6 +11,8 @@ public class MainCharacterScript : MonoBehaviour
     CombinedHelperScript Helper;
     Vector3 dir;
     int health = 20;
+    public GameObject weapon;
+    private bool m_FacingRight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,23 +24,25 @@ public class MainCharacterScript : MonoBehaviour
         //dir = Vector3.zero;
     }
 
-    private void FixedUpdate()
+    private void Flip()
     {
-        //rb.AddForce(dir, ForceMode2D.Impulse);
+        m_FacingRight = !m_FacingRight;
+
+        transform.Rotate(0f, 180f, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        float speed = 0.5f;
+        int speed = 1;
+        float jumpFactor = 0.025f;
         anim.SetBool("Walk", false);
 
-         dir = Vector3.zero;
+        dir = Vector3.zero;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 1.5f;
+            speed = 2;
             print("Left Shift Pressed");
             anim.SetBool("Run", true);
         }
@@ -49,19 +53,14 @@ public class MainCharacterScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            sr.flipX = false;
             print("D Key Pressed");
             anim.SetBool("Walk", true);
-            //transform.position = new Vector2(transform.position.x + (speed * Time.deltaTime), transform.position.y);
-            //dir = new Vector3(25, 0, 0);
-
-            rb.velocity = new Vector3(3, rb.velocity.y);
-
+            transform.position = new Vector2(transform.position.x + (speed * Time.deltaTime), transform.position.y);           
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            sr.flipX = true;
+            Flip();
             anim.SetBool("Walk", true);
             print("A Key Pressed");
             transform.position = new Vector2(transform.position.x - (speed * Time.deltaTime), transform.position.y);
@@ -100,13 +99,15 @@ public class MainCharacterScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             print("Space Pressed");
-
+            anim.SetBool("Jump", true);
+            //transform.position = new Vector2(transform.position.y + (jumpFactor * Time.deltaTime), transform.position.x);
+            rb.AddForceY(jumpFactor, ForceMode2D.Impulse);
         }
-
-        if (Input.GetKey(KeyCode.Space))
+        else
         {
-            print("Enter Key Pressed");
-            anim.SetBool("", true)
+            anim.SetBool("Jump", false);
         }
     }
+
+    
 }
