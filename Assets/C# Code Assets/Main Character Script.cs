@@ -12,7 +12,6 @@ public class MainCharacterScript : MonoBehaviour
     Vector3 dir;
     int health = 20;
     public GameObject weapon;
-    private bool m_FacingRight = true;
 
     // Start is called before the first frame update
     void Start()

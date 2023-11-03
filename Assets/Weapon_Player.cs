@@ -15,7 +15,7 @@ public class Weapon_Player : MonoBehaviour
     {
         anim.SetBool("Shoot 2", false);
         anim.SetBool("Shoot 1", false);
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Return))
         {
             shoot();
             anim.SetBool("Shoot 2", true);

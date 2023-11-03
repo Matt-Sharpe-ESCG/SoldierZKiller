@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684376472991745123}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.639959, y: -3.046791, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &415878366745211436
 SpriteRenderer:
@@ -175,4 +175,4 @@ MonoBehaviour:
   speed: 20
   damage: 1
   rb: {fileID: -8898953087390739562}
-  impactEffect: {fileID: 8946157083162428782, guid: a4c0614f0ec43e240b74f50554d548a2, type: 3}
+  impactEffect: {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}

@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      french_0: -9202289037125319786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System;
 using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
@@ -11,6 +13,13 @@ public class BulletMovement : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
+    void Bullet()
+    {
+        Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
+        bool hits = true;
+    }
+
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
         MainEnemy enemy = hitInfo.GetComponent<MainEnemy>();
@@ -19,12 +28,31 @@ public class BulletMovement : MonoBehaviour
             enemy.TakeDamage(damage);
         }
 
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
+        PatrolingEnemyScript enemy2 = hitInfo.GetComponent<PatrolingEnemyScript>();
+        if (enemy2 != null)
+        {
+            enemy2.TakeDamage(damage);
+        }
+
+        if (hitInfo.gameObject)
+        {
+            Bullet() = false;
+        }
+
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        if (impactEffect != null)
+        {
+            Destroy(impactEffect);
+        }
     }
 }
