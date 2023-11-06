@@ -3,43 +3,14 @@ using System;
 using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
-    public float speed = 20f;
-    public int damage = 1;
+    public float speed = 20f; 
     public Rigidbody2D rb;
     public GameObject impactEffect;
 
     void Start()
     {
-        rb.velocity = transform.right * speed;
-    }
-
-    void Bullet()
-    {
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
-        bool hits = true;
-    }
-
-    void OnTriggerEnter2D (Collider2D hitInfo)
-    {
-        MainEnemy enemy = hitInfo.GetComponent<MainEnemy>();
-        if (enemy != null)
-        {
-            enemy.TakeDamage(damage);
-        }
-
-        PatrolingEnemyScript enemy2 = hitInfo.GetComponent<PatrolingEnemyScript>();
-        if (enemy2 != null)
-        {
-            enemy2.TakeDamage(damage);
-        }
-
-        if (hitInfo.gameObject)
-        {
-            Bullet() = false;
-        }
-
-        
+        //rb.velocity = transform.right * speed;
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

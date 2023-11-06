@@ -8,9 +8,8 @@ public class MainCharacterScript : MonoBehaviour
     public Animator anim;
     SpriteRenderer sr;
     Rigidbody2D rb;
-    CombinedHelperScript Helper;
+    
     Vector3 dir;
-    int health = 20;
     public GameObject weapon;
 
     // Start is called before the first frame update
@@ -19,7 +18,6 @@ public class MainCharacterScript : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        Helper = gameObject.AddComponent<CombinedHelperScript>();
         //dir = Vector3.zero;
     }
 
@@ -32,7 +30,7 @@ public class MainCharacterScript : MonoBehaviour
     void Update()
     {
         int speed = 1;
-        float jumpFactor = 4f;
+        float jumpFactor = 150f;
         anim.SetBool("Walk", false);
 
         dir = Vector3.zero;
@@ -94,7 +92,7 @@ public class MainCharacterScript : MonoBehaviour
             anim.SetBool("Roll", false);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             print("Space Pressed");
             anim.SetBool("Jump", true);
@@ -105,24 +103,5 @@ public class MainCharacterScript : MonoBehaviour
         {
             anim.SetBool("Jump", false);
         }
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health >= 0)
-        {
-            anim.SetBool("Hit", true);
-        }
-
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        anim.SetBool("Die", true);
     }
 }

@@ -9,8 +9,7 @@ public class PatrolingEnemyScript : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Transform currentPoint;
-    public float speed;
-    private int health = 15;
+    public float speed; 
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +18,7 @@ public class PatrolingEnemyScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         currentPoint = PointB.transform;
         anim.SetBool("Run", true);
+        
     }
 
     // Update is called once per frame
@@ -52,16 +52,6 @@ public class PatrolingEnemyScript : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0)
-        {
-            Die();
-        }
     }
 
     void Die()
