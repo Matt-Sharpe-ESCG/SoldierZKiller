@@ -15,8 +15,15 @@ public class BulletMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Bullet_Player"))
+        {
+            
+        }
+        else      
+        {
+             Instantiate(impactEffect, transform.position, transform.rotation);
+             Destroy(gameObject);
+        }
     }
 
     private void Update()

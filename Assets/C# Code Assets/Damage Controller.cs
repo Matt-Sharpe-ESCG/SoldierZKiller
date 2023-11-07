@@ -14,12 +14,18 @@ public class DamageController : MonoBehaviour
         {
             Damage();
         }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            Damage();
+        } 
+
     }
 
     void Damage()
     {
         _healthController.playerLives = _healthController.playerLives - bulletDamage;
         _healthController.UpdateHealth();
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 }

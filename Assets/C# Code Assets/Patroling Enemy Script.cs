@@ -9,19 +9,16 @@ public class PatrolingEnemyScript : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Transform currentPoint;
-    public float speed; 
+    public float speed;
+    public float peHealth;
 
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         currentPoint = PointB.transform;
-        anim.SetBool("Run", true);
-        
+        anim.SetBool("Run", true);        
     }
-
-    // Update is called once per frame
     void Update()
     {
         Vector2 point = currentPoint.position - transform.position;
@@ -45,8 +42,29 @@ public class PatrolingEnemyScript : MonoBehaviour
             flip();
             currentPoint = PointB.transform;
         }
+        anim.SetBool("Attack", false);
+        anim.SetBool("Injury", false);
+        anim.SetBool("Die", false);
     }
 
+    private void OnTriggerEnter2D (Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            anim.SetBool("Attack", true);
+        }
+
+        if (collision.CompareTag("Bullet_Player"))
+        {
+            peHealth = peHealth - 1;
+            anim.SetBool("Injury", true);
+            if (peHealth < 0)
+            {
+                anim.SetBool("Die", true);
+                //Die();
+            }
+        }
+    }
     private void flip()
     {
         Vector3 localScale = transform.localScale;
@@ -54,8 +72,21 @@ public class PatrolingEnemyScript : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    void Die()
+    /* void Die()
+     {
+         StartCoroutine(Killed(0.5f));
+     }
+
+     IEnumerator Killed(float, 1f)
+     {
+         yield return new WaitForSeconds(1);
+         Despawn();
+     }*/
+
+
+
+    /*void Despawn()
     {
         Destroy(gameObject);
-    }
+    }*/
 }

@@ -7,12 +7,17 @@ public class MainCharacterScript : MonoBehaviour
 {
     public Animator anim;
     SpriteRenderer sr;
-    Rigidbody2D rb;
-    
+    Rigidbody2D rb;  
     Vector3 dir;
     public GameObject weapon;
+    playerHealth healthInfo;
+    public Transform firePointLeft;
+    public Transform firePointRight;
+    public GameObject bulletprefab;
+    public GameObject player;
+    public AmmoControllerPlayer Ammuntion;
+    int ammoCount = 30;
 
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -26,11 +31,10 @@ public class MainCharacterScript : MonoBehaviour
         sr.flipX = left;
     }
 
-    // Update is called once per frame
     void Update()
     {
         int speed = 1;
-        float jumpFactor = 150f;
+        float jumpFactor = 250f;
         anim.SetBool("Walk", false);
 
         dir = Vector3.zero;
@@ -72,20 +76,22 @@ public class MainCharacterScript : MonoBehaviour
             anim.SetBool("Crouch", false);
         }
 
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.Q))
         {
             print("Right Shift and A Key Pressed");
             anim.SetBool("Roll", true);
+            rb.AddForceX(10, ForceMode2D.Impulse);
         }
         else
         {
             anim.SetBool("Roll", false);
         }
 
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.Q))
         {
             print("Right Shift and A Key Pressed");
             anim.SetBool("Roll", true);
+            rb.AddForceX(10, ForceMode2D.Impulse);
         }
         else
         {
@@ -96,12 +102,71 @@ public class MainCharacterScript : MonoBehaviour
         {
             print("Space Pressed");
             anim.SetBool("Jump", true);
-            //transform.position = new Vector2(transform.position.y + (jumpFactor * Time.deltaTime), transform.position.x);
+            //transform.position = new Vector2(transform.position.y + (j umpFactor * Time.deltaTime), transform.position.x);
             rb.AddForceY(jumpFactor, ForceMode2D.Impulse);
         }
         else
         {
             anim.SetBool("Jump", false);
         }
+
+        anim.SetBool("Shoot 2", false);
+        anim.SetBool("Shoot 1", false);
+        anim.SetBool("Reload", false);
+
+        if (Input.GetKeyDown(KeyCode.Return) && ammoCount > 0)
+        {
+            shoot();
+            anim.SetBool("Shoot 2", true);
+            ammoCount = ammoCount - 1;
+            anim.SetInteger("Ammo", ammoCount - 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey("A"))
+        {
+            shoot();
+            anim.SetBool("Shoot 1", true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey("D"))
+        {
+            shoot();
+            anim.SetBool("Shoot 1", true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey("E"))
+        {
+            shoot();
+            anim.SetBool("Crouch Shoot", true);
+            ammoCount = ammoCount - 1;
+            anim.SetFloat("Ammo", ammoCount - 1);
+        }
+
+        if (ammoCount == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                anim.SetBool("Reload", true);
+                ammoCount = 30;
+            }
+        }
+    }
+    void shoot()
+    {
+        Vector3 bulletDirection;
+        GameObject obj;
+
+        if (player.GetComponent<SpriteRenderer>().flipX == true)
+        {
+            bulletDirection = -transform.right * 20f;
+            obj = Instantiate(bulletprefab, firePointLeft.position, firePointLeft.rotation);
+        }
+        else
+        {
+            bulletDirection = transform.right * 20f;
+            obj = Instantiate(bulletprefab, firePointRight.position, firePointRight.rotation);
+        }
+        obj.GetComponent<Rigidbody2D>().velocity = bulletDirection;
+
     }
 }
