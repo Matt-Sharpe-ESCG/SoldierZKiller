@@ -1,6 +1,6 @@
 Assignment Checklist 
-- Weekly Writeup: [IN PROGRESS - 80%]
+- Weekly Writeup: [COMPLETE]
 - Schedule: [COMPLETE]
 - Declaration: [COMPLETE]
 - Assignment Document: [IN PROGRESS]
-- Practical Task: [IN PROGRESS]
+- Practical Task: [COMPLETE]
