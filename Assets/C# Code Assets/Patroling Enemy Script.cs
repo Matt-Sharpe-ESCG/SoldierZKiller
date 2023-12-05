@@ -72,7 +72,7 @@ public class PatrolingEnemyScript : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    /* void Die()
+     /*void Die()
      {
          StartCoroutine(Killed(0.5f));
      }

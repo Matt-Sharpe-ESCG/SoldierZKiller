@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
 public class MainCharacterScript : MonoBehaviour   
 {
     public Animator anim;
