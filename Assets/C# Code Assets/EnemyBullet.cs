@@ -30,7 +30,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (impactEffect != null)
         {
-            Destroy(impactEffect);
+            //Destroy(impactEffect);
         }
     }
 }

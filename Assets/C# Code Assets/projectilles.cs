@@ -30,7 +30,7 @@ public class BulletMovement : MonoBehaviour
     {
         if (impactEffect != null)
         {
-            Destroy(impactEffect);
+            //Destroy(impactEffect);
         }
     }
 }

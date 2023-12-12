@@ -6,6 +6,7 @@ public class Damage : MonoBehaviour
 {
     public playerHealth pHealth;
     public float damage;
+    public MainEnemy eHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,11 @@ public class Damage : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             pHealth.health -= damage;
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            eHealth.eHealth -= damage;
         }
     }
 }
